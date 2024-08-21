@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import api from '../axiosConfig.js'
+import api from '../../axiosConfig.js'
 
 const Navigation = () => {
     let contents = [

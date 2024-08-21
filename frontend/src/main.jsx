@@ -1,17 +1,25 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
-import Navbar from './Navbar.jsx'
-import Hero from './Hero.jsx'
-import Navigation from './Navigation.jsx'
+import Navbar from './components/Navbar.jsx'
+import Hero from './components/Hero.jsx'
+import Navigation from './components/Navigation.jsx'
+import Landing from './Landing.jsx'
+
+const router = createBrowserRouter([
+  {
+    path : '/',
+    element : <Landing />
+  },
+  {
+    path : '/hero/',
+    element: <Hero />
+  }
+]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <div className="landing">
-      <Navbar />
-      <Hero />
-      <Navigation />
-    </div>
-  </StrictMode>,
+    <RouterProvider router={ router } />
+  </StrictMode>
 )

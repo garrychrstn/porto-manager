@@ -1,0 +1,15 @@
+import Hero from './components/Hero.jsx'
+import Navbar from './components/Navbar.jsx';
+import Navigation from './components/Navigation.jsx';
+
+const Landing = () => {
+    return ( 
+        <div className="landing">
+            <Navbar />
+            <Hero />
+            <Navigation />
+        </div>
+     );
+}
+ 
+export default Landing;

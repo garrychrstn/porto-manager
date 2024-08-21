@@ -1,4 +1,4 @@
-import './App.css'
+
 import { FaInstagram, FaGithub } from "react-icons/fa6";
 import { CgMail } from "react-icons/cg";
 import { BsFillTelephoneForwardFill } from "react-icons/bs";
