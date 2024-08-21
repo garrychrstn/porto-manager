@@ -8,8 +8,10 @@ import Navigation from './Navigation.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Navbar />
-    <Hero />
-    <Navigation />
+    <div className="landing">
+      <Navbar />
+      <Hero />
+      <Navigation />
+    </div>
   </StrictMode>,
 )

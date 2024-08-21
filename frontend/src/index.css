@@ -6,6 +6,12 @@
   margin: 0;
   padding: 0;
 }
+.landing {
+  display: flex;
+  height: 80vh;
+  flex-direction: column;
+  justify-content: space-around;
+}
 button { 
   cursor : pointer;
 }
@@ -23,7 +29,6 @@ button {
 }
 body {
   background: var(--cream-bg);
-  padding-top: 50px;
 }
 a, li, p, h1, h2 {
   list-style: none;
@@ -46,9 +51,11 @@ a, li, p, h1, h2 {
 .hero {
   margin: auto;
   text-align: center;
-  margin: 15% 0%;
 }
 
 .underline {
   text-decoration: underline;
+}
+.navigation .content {
+  margin-top: 10%;
 }

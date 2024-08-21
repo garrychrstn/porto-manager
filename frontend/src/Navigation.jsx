@@ -34,7 +34,7 @@ const Navigation = () => {
                     <button onClick={() => setPage('quotes')} className='nav_button'>quotes</button>
                 </ul>
                 <div className="content">
-                    { content.description }
+                    <p>{ content.description }</p>
                 </div>
             </div>
         </>
