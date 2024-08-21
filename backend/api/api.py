@@ -1,0 +1,25 @@
+from api.models import *
+from rest_framework import viewsets, permissions
+from . serializer import *
+
+# VIEWSET -> CRUD API
+class ExpViewSet(viewsets.ModelViewSet):
+    queryset = Experience.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = ExpSerializer
+
+class ArtViwSet(viewsets.ModelViewSet):
+    querysett = Article.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = ArtSerializer
+
+class QuoViewSet(viewsets.ModelViewSet):
+    queryset = Quote.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = QuoSerializer
