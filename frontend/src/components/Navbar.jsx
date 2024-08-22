@@ -32,6 +32,9 @@ function Navbar() {
                     <span>garrychrstn@gmail.com</span>
                   </a>
                 </li>
+                <li>
+                  
+                </li>
             </ul>
         </div>
     </>

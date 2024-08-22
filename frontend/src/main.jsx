@@ -6,16 +6,18 @@ import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
 import Navigation from './components/Navigation.jsx'
 import Landing from './Landing.jsx'
+import NotFound from './NotFound.jsx'
 
 const router = createBrowserRouter([
   {
     path : '/',
-    element : <Landing />
+    element : <Landing />,
+    errorElement: <NotFound />
   },
   {
     path : '/hero/',
     element: <Hero />
-  }
+  },
 ]);
 
 createRoot(document.getElementById('root')).render(
