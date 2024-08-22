@@ -18,6 +18,10 @@ const router = createBrowserRouter([
     path : '/hero/',
     element: <Hero />
   },
+  {
+    path : '/experiences',
+    element: <Hero /> 
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(

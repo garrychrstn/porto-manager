@@ -15,9 +15,9 @@ const Navigation = () => {
         setContent(c)
     }
     useEffect(() => {
-        api.get('/exp/1/')
+        api.get('/exp/') && api.get('/quo') && api.get('/art')
         .then(response => {
-            console.log(response.data.position);
+            console.log(response);
             console.log('success')
         })
         .catch(error => {
