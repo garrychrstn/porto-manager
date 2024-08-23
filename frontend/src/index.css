@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --cream-bg : #eaeaea;
   --black-font : #434343;
@@ -13,6 +17,12 @@
   flex-direction: column;
   justify-content: space-around;
 }
+input {
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: none;
+  margin-right: 10px;
+}
 button { 
   cursor : pointer;
 }
@@ -22,7 +32,7 @@ button {
 }
 .nav_button {
   border: none;
-  transition: .5s
+  transition: .5s;
   border-bottom: 3px solid transparent;
 }
 .nav_button:hover {
@@ -97,3 +107,16 @@ a, li, p, h1, h2 {
    border: 1px black solid;
    margin-bottom: 12px;
 }
+
+// Manage Page
+.manage {
+  
+}
+/*
+.manage {
+  padding: 30px 20px;
+  width: 70%;
+  margin: auto;
+}
+
+*/

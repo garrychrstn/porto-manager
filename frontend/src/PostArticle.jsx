@@ -14,6 +14,7 @@ const PostArticle = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(data)
         api.post('/art/', data)
         .then(response => {
             console.log('article submitted')
@@ -28,7 +29,7 @@ const PostArticle = () => {
         <div className="postarticle">
             <h1>form article</h1>
             <form onSubmit={handleSubmit}>
-                <label for='title'>title : </label>
+                <label>title : </label>
                 <input 
                 type='text' 
                 name='title' 
@@ -36,7 +37,7 @@ const PostArticle = () => {
                 onChange={ handleChange } 
                 required />
                 
-                <label for='content'>content : </label>
+                <label>content : </label>
                 <input 
                 type='text' 
                 name='content' 
