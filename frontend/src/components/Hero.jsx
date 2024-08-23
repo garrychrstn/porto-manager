@@ -1,3 +1,5 @@
+
+import { useEffect } from "react"
 const Hero = () => {
     let posts = ['developer', 'network engineer consultant', 'ui / ux', 'cybersecs consultant']
     // const [handle, setHandle] = useState('developer')

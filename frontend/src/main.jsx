@@ -8,6 +8,8 @@ import Navigation from './components/Navigation.jsx'
 import Landing from './Landing.jsx'
 import NotFound from './NotFound.jsx'
 import Article from './Article.jsx'
+import PostArticle from './PostArticle.jsx'
+import Project from './Project.jsx'
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
   {
     path : '/experiences',
     element: <Hero /> 
+  },
+  {
+    path: '/projects',
+    element: <Project />
+  },
+  {
+    path : '/post/article',
+    element : <PostArticle />
   }
 ]);
 
