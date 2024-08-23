@@ -17,6 +17,8 @@ const PostArticle = () => {
         api.post('/art/', data)
         .then(response => {
             console.log('article submitted')
+            setData({title: '', content: ''})
+            alert('data submitted')
         })
         .catch(error => {
             console.log('Error : ', error)

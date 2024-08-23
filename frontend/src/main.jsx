@@ -10,6 +10,7 @@ import NotFound from './NotFound.jsx'
 import Article from './Article.jsx'
 import PostArticle from './PostArticle.jsx'
 import Project from './Project.jsx'
+import Manage from './Manage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path : '/post/article',
     element : <PostArticle />
+  },
+  {
+    path: '/manage/',
+    element: <Manage />
   }
 ]);
 
