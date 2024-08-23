@@ -3,7 +3,7 @@ from . api import *
 
 router = routers.DefaultRouter()
 router.register('api/exp', ExpViewSet, 'exp')
-router.register('api/art', ArtViwSet, 'art')
+router.register('api/art', ArtViewSet, 'art')
 router.register('api/quo', QuoViewSet, 'quo')
 
 

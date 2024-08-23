@@ -3,8 +3,9 @@ import Navbar from './components/Navbar.jsx';
 import Navigation from './components/Navigation.jsx';
 
 const Landing = () => {
+    
     return ( 
-        <div className="landing">
+        <div className="fullpage">
             <Navbar />
             <Hero />
             <Navigation />

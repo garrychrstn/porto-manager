@@ -10,8 +10,8 @@ class ExpViewSet(viewsets.ModelViewSet):
     ]
     serializer_class = ExpSerializer
 
-class ArtViwSet(viewsets.ModelViewSet):
-    querysett = Article.objects.all()
+class ArtViewSet(viewsets.ModelViewSet):
+    queryset = Article.objects.all()
     permission_classes = [
         permissions.AllowAny
     ]

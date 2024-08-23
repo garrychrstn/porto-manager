@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import api from '../../axiosConfig.js'
 
 const Navigation = () => {
@@ -28,14 +29,17 @@ const Navigation = () => {
         <>
             <div className="navigation">
                 <ul>
-                    <button onClick={() => setPage('exp')} className='nav_button'>experiences</button>
+                    
+                    <Link to='/experiences' className='nav_button'>experiences</Link>
+                    <Link to='/projects' className='nav_button'>projects</Link>
+                    <Link to='/about' className='nav_button'>about</Link>
+                    <Link to='/quotes' className='nav_button'>quotes</Link>
+                    <Link to='/article' className='nav_button'>articles</Link>
+                    {/* <button onClick={() => setPage('exp')} className='nav_button'>experiences</button>
                     <button onClick={() => setPage('project')} className='nav_button'>projects</button>
                     <button onClick={() => setPage('about')} className='nav_button'>about</button>
-                    <button onClick={() => setPage('quotes')} className='nav_button'>quotes</button>
+                    <button onClick={() => setPage('quotes')} className='nav_button'>quotes</button> */}
                 </ul>
-                <div className="content">
-                    <p>{ content.description }</p>
-                </div>
             </div>
         </>
      );
