@@ -6,6 +6,7 @@
 
 import { useState, useEffect } from "react";
 import api from "../axiosConfig";
+import { Link } from "react-router-dom";
 
 const Manage = () => {
 
@@ -27,6 +28,19 @@ const Manage = () => {
     let propQuote = ['text', 'by']
     let propArt = ['title', 'content']
     let propExp = ['position', 'company', 'start_date', 'end_date', 'desc']
+    let tails = {
+            text: 'block w-full p-2 mb-3 bg-neutral-200 shadow-lg shadow-black-150',
+            by: 'block w-1/2 p-2 mb-3 bg-neutral-200 shadow-lg shadow-black-150',
+            position: 'inline w-full p-2 mb-3 bg-neutral-200 shadow-lg shadow-black-150',
+            company: 'inline w-full p-2 mb-3 bg-neutral-200 shadow-lg shadow-black-150',
+            start_date: 'inline w-1/3 p-2 mb-3 bg-neutral-200 shadow-lg shadow-black-150',
+            end_date: 'inline w-1/2 p-2 mb-3 bg-neutral-200 shadow-lg shadow-black-150',
+            desc: 'block w-full p-2 mb-3 bg-neutral-200 shadow-lg shadow-black-150',
+            title: 'block w-full p-2 mb-3 bg-neutral-200 shadow-lg shadow-black-150',
+            content: 'block w-full p-2 mb-3 bg-neutral-200 shadow-lg shadow-black-150',
+            submit: 'inline-block rounded bg-neutral-800 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-neutral-50 shadow-dark-3 transition duration-150 ease-in-out hover:bg-neutral-700 hover:shadow-dark-2 focus:bg-neutral-700 focus:shadow-dark-2 focus:outline-none focus:ring-0 active:bg-neutral-900 active:shadow-dark-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong'
+        }
+
     let dataSent = {}
     const changeData = (e) => (
         setData({
@@ -73,59 +87,68 @@ const Manage = () => {
     }
     return ( 
         <div className="manage m-auto w-2/3 pt-9">
-            <div className="logo inline-block">
-                <h1 className="text-4xl underline">Porto Manager</h1>
-                <p className="upload-content text-s mb-10 text-right">
-                    post new things...
-                </p>
+            <div className="porto-nav flex justify-between mb-10 items-center">
+                <div className="logo inline-block">
+                    <h1 className="text-4xl underline">porto-manager</h1>
+                    <p className="upload-content text-stext-right">
+                        post new things...
+                    </p>
+                </div>
+                <div className="nav-link">
+                    <Link to='/' className="no-underline bg-gray-800 text-white rounded-l-md border-r border-gray-100 py-2 hover:bg-neutral-800 hover:text-white px-3">&#x2190; back</Link>
+                </div>
             </div>
-            <div className="split flex justify-around">
-                <form className="m-30" onSubmit={ sendData }>
-                    <h2>add quote</h2>
+            
+            <div className="split flex justify-between">
+                <form className="forms-quote m-30 flex-1 p-3" onSubmit={ sendData }>
+                    <h2>add quote...</h2>
                     { propQuote.map((quote) => (
                         <input 
+                        className={ tails[quote] }
                         key= { quote }
                         type='text'
                         name={quote}
                         onChange = { changeData }
                         value = { data[quote] }
-                        placeholder = { data[quote] }
+                        placeholder = { data[quote] ? '' : `enter ${quote}` }
                         required
                         />
                     ))}
-                    <button type='submit'>submit</button>
+                    <button className= { tails.submit } type='submit'>submit</button>
                 </form>
-                <form className="forms-experience" onSubmit={ sendData }>
-                    <h2>add experience</h2>
+                <form className="forms-experience flex-1 p-3" onSubmit={ sendData }>
+                    <h2>add experience...</h2>
                     { propExp.map((exp) => (
                         <input
+                        className = { tails[exp] }
                         key = { exp }
                         type='text'
                         name={ exp }
                         onChange = { changeData }
                         value = { data[exp] }
-                        placeholder = { data[exp] }
+                        placeholder = { data[exp] ? '' : `enter ${exp}` }
                         required
                         />
                     ))}
-                    <button type='submit'>submit</button>
+                    <button className= { tails.submit } type='submit'>submit</button>
                 </form>
             </div>
             <div className="forms mt-5">
                 <form className="forms-article" onSubmit={ sendData }>
-                    <h2>add article</h2>
+                    <h2>add article...</h2>
                     { propArt.map((art) => (
                         <input
+                        className={ tails[art] }
                         key = { art }
                         type='text'
                         name={ art }
                         onChange={ changeData }
                         value= { data[art] }
-                        placeholder= { data[art] }
+                        placeholder= { data[art] ? '' : `enter ${art}`}
                         required
                         />
                     ))}
-                    <button type='submit'>submit</button>
+                    <button className={ tails.submit }type='submit'>submit</button>
                 </form>
             </div>
         </div>
