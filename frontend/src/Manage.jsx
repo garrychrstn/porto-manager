@@ -24,19 +24,29 @@ const Manage = () => {
             desc: ''
         }
     ])
+    const calculateDays = (due) => {
+        let now = new Date()
+        let target = new Date(due);
 
+        let diff = target.getTime() - now.getTime();
+        let diffDay = Math.ceil(diff / (1000 * 3600 * 24));     
+        return diffDay
+    }
     const [todos, setTodos] = useState([{id: 0, do: 'loading...', due : 'loading...'}])
     useEffect(() => {
         api.get('/tod/')
         .then((response) => {
             setTodos(response.data)
+            todos.forEach(doo => {
+                due.id = doo.id
+                due.days = calculateDays(doo.due)
+            });
             console.log('Success, ', response)
         })
         .catch((error) => {
             console.log('Error', error)
         })  
     }, [])
-
     let propQuote = ['text', 'by']
     let propArt = ['title', 'content']
     let propExp = ['position', 'company', 'start_date', 'end_date', 'desc']
@@ -114,18 +124,22 @@ const Manage = () => {
             <div className="show">
                 <section className="todo">
                     <h2>your to do :</h2>
-                    <table className='min-w-full text-left text-sm font-light text-surface dark:text-white'>
-                        <thead className='border-b border-neutral-200 font-medium dark:border-white/10'>
+                    <table className='min-w-full text-left text-surface m-auto'>
+                        <thead className='border-b border-neutral-200 dark:border-white/10'>
                             <tr>
+                                <th>id</th>
                                 <th>to do</th>
                                 <th>due date</th>
+                                <th>days left</th>
                             </tr>
                         </thead>
                         <tbody>
                             { todos.map((todo) => (
                                 <tr className='border-b border-neutral-200 transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-white/10 dark:hover:bg-neutral-600' key={ todo.id }>
+                                    <td>{ todo.id }</td>
                                     <td>{ todo.do }</td>
                                     <td>{ todo.due }</td>
+                                    <td>{ calculateDays(todo.due) }</td>
                                 </tr>
                             ))}
                         </tbody>
