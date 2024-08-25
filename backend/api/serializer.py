@@ -19,4 +19,7 @@ class QuoSerializer(serializers.ModelSerializer):
         model = Quote
         fields = '__all__'
 
-    
+class ToDSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ToDo
+        fields = '__all__'

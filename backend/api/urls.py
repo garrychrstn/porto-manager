@@ -5,6 +5,6 @@ router = routers.DefaultRouter()
 router.register('api/exp', ExpViewSet, 'exp')
 router.register('api/art', ArtViewSet, 'art')
 router.register('api/quo', QuoViewSet, 'quo')
-
+router.register('api/tod', ToDViewSet, 'tod')
 
 urlpatterns = router.urls

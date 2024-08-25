@@ -15,3 +15,7 @@ class Article(models.Model):
 class Quote(models.Model):
     text = models.CharField(max_length=100)
     by = models.CharField(max_length=30)
+
+class ToDo(models.Model):
+    do = models.CharField(max_length=50)
+    due = models.DateField()

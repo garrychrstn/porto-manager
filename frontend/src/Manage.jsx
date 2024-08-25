@@ -25,6 +25,18 @@ const Manage = () => {
         }
     ])
 
+    const [todos, setTodos] = useState([{id: 0, do: 'loading...', due : 'loading...'}])
+    useEffect(() => {
+        api.get('/tod/')
+        .then((response) => {
+            setTodos(response.data)
+            console.log('Success, ', response)
+        })
+        .catch((error) => {
+            console.log('Error', error)
+        })  
+    }, [])
+
     let propQuote = ['text', 'by']
     let propArt = ['title', 'content']
     let propExp = ['position', 'company', 'start_date', 'end_date', 'desc']
@@ -90,8 +102,8 @@ const Manage = () => {
             <div className="porto-nav flex justify-between mb-10 items-center">
                 <div className="logo inline-block">
                     <h1 className="text-4xl underline">porto-manager</h1>
-                    <p className="upload-content text-stext-right">
-                        post new things...
+                    <p className="upload-content text-right">
+                        peek at yourself...
                     </p>
                 </div>
                 <div className="nav-link">
@@ -99,57 +111,80 @@ const Manage = () => {
                 </div>
             </div>
             
-            <div className="split flex justify-between">
-                <form className="forms-quote m-30 flex-1 p-3" onSubmit={ sendData }>
-                    <h2>add quote...</h2>
-                    { propQuote.map((quote) => (
-                        <input 
-                        className={ tails[quote] }
-                        key= { quote }
-                        type='text'
-                        name={quote}
-                        onChange = { changeData }
-                        value = { data[quote] }
-                        placeholder = { data[quote] ? '' : `enter ${quote}` }
-                        required
-                        />
-                    ))}
-                    <button className= { tails.submit } type='submit'>submit</button>
-                </form>
-                <form className="forms-experience flex-1 p-3" onSubmit={ sendData }>
-                    <h2>add experience...</h2>
-                    { propExp.map((exp) => (
-                        <input
-                        className = { tails[exp] }
-                        key = { exp }
-                        type='text'
-                        name={ exp }
-                        onChange = { changeData }
-                        value = { data[exp] }
-                        placeholder = { data[exp] ? '' : `enter ${exp}` }
-                        required
-                        />
-                    ))}
-                    <button className= { tails.submit } type='submit'>submit</button>
-                </form>
+            <div className="show">
+                <section className="todo">
+                    <h2>your to do :</h2>
+                    <table className='min-w-full text-left text-sm font-light text-surface dark:text-white'>
+                        <thead className='border-b border-neutral-200 font-medium dark:border-white/10'>
+                            <tr>
+                                <th>to do</th>
+                                <th>due date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            { todos.map((todo) => (
+                                <tr className='border-b border-neutral-200 transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-white/10 dark:hover:bg-neutral-600' key={ todo.id }>
+                                    <td>{ todo.do }</td>
+                                    <td>{ todo.due }</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </section>
             </div>
-            <div className="forms mt-5">
-                <form className="forms-article" onSubmit={ sendData }>
-                    <h2>add article...</h2>
-                    { propArt.map((art) => (
-                        <input
-                        className={ tails[art] }
-                        key = { art }
-                        type='text'
-                        name={ art }
-                        onChange={ changeData }
-                        value= { data[art] }
-                        placeholder= { data[art] ? '' : `enter ${art}`}
-                        required
-                        />
-                    ))}
-                    <button className={ tails.submit }type='submit'>submit</button>
-                </form>
+            <div className="crud">
+                <div className="split flex justify-between">
+                    <form className="forms-quote m-30 flex-1 p-3" onSubmit={ sendData }>
+                        <h2>add quote...</h2>
+                        { propQuote.map((quote) => (
+                            <input 
+                            className={ tails[quote] }
+                            key= { quote }
+                            type='text'
+                            name={quote}
+                            onChange = { changeData }
+                            value = { data[quote] }
+                            placeholder = { data[quote] ? '' : `enter ${quote}` }
+                            required
+                            />
+                        ))}
+                        <button className= { tails.submit } type='submit'>submit</button>
+                    </form>
+                    <form className="forms-experience flex-1 p-3" onSubmit={ sendData }>
+                        <h2>add experience...</h2>
+                        { propExp.map((exp) => (
+                            <input
+                            className = { tails[exp] }
+                            key = { exp }
+                            type='text'
+                            name={ exp }
+                            onChange = { changeData }
+                            value = { data[exp] }
+                            placeholder = { data[exp] ? '' : `enter ${exp}` }
+                            required
+                            />
+                        ))}
+                        <button className= { tails.submit } type='submit'>submit</button>
+                    </form>
+                </div>
+                <div className="forms mt-5">
+                    <form className="forms-article" onSubmit={ sendData }>
+                        <h2>add article...</h2>
+                        { propArt.map((art) => (
+                            <input
+                            className={ tails[art] }
+                            key = { art }
+                            type='text'
+                            name={ art }
+                            onChange={ changeData }
+                            value= { data[art] }
+                            placeholder= { data[art] ? '' : `enter ${art}`}
+                            required
+                            />
+                        ))}
+                        <button className={ tails.submit }type='submit'>submit</button>
+                    </form>
+                </div>
             </div>
         </div>
      );

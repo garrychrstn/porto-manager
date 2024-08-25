@@ -23,3 +23,10 @@ class QuoViewSet(viewsets.ModelViewSet):
         permissions.AllowAny
     ]
     serializer_class = QuoSerializer
+
+class ToDViewSet(viewsets.ModelViewSet):
+    queryset = ToDo.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = ToDSerializer
