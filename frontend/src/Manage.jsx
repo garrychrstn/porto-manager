@@ -122,12 +122,12 @@ const Manage = () => {
             </div>
             
             <div className="show">
-                <section className="todo">
-                    <h2>your to do :</h2>
-                    <table className='min-w-full text-left text-surface m-auto'>
-                        <thead className='border-b border-neutral-200 dark:border-white/10'>
+                <section className="todo p-2">
+                    <h2 className="mb-2">your to do :</h2>
+                    <table className='min-w-full text-left text-surface m-auto p-5 mb-5'>
+                        <thead className='text-xs text-gray-100 bg-gray-800 dark:bg-gray-800 dark:text-neutral-300'>
                             <tr>
-                                <th>id</th>
+                                <th className="p-2">id</th>
                                 <th>to do</th>
                                 <th>due date</th>
                                 <th>days left</th>
@@ -135,8 +135,8 @@ const Manage = () => {
                         </thead>
                         <tbody>
                             { todos.map((todo) => (
-                                <tr className='border-b border-neutral-200 transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-white/10 dark:hover:bg-neutral-600' key={ todo.id }>
-                                    <td>{ todo.id }</td>
+                                <tr className='border-b border-neutral-200 transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-white/10 dark:hover:bg-neutral-300 p-5' key={ todo.id }>
+                                    <td className="p-2">{ todo.id }</td>
                                     <td>{ todo.do }</td>
                                     <td>{ todo.due }</td>
                                     <td>{ calculateDays(todo.due) }</td>
