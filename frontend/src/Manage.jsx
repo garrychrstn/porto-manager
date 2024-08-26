@@ -21,7 +21,9 @@ const Manage = () => {
             company: '',
             start_date: '',
             end_date: '',
-            desc: ''
+            desc: '',
+            do: '',
+            due: ''
         }
     ])
     const calculateDays = (due) => {
@@ -49,6 +51,7 @@ const Manage = () => {
     }, [])
     let propQuote = ['text', 'by']
     let propArt = ['title', 'content']
+    let propTod = ['do', 'due']
     let propExp = ['position', 'company', 'start_date', 'end_date', 'desc']
     let tails = {
             text: 'block w-full p-2 mb-3 bg-neutral-200 shadow-lg shadow-black-150',
@@ -59,8 +62,10 @@ const Manage = () => {
             end_date: 'inline w-1/2 p-2 mb-3 bg-neutral-200 shadow-lg shadow-black-150',
             desc: 'block w-full p-2 mb-3 bg-neutral-200 shadow-lg shadow-black-150',
             title: 'block w-full p-2 mb-3 bg-neutral-200 shadow-lg shadow-black-150',
+            do: 'block w-1/2 p-2 mb-3 bg-neutral-200 shadow-lg shadow-black-150',
+            due: 'block w-1/2 p-2 mb-3 bg-neutral-200 shadow-lg shadow-black-150',
             content: 'block w-full p-2 mb-3 bg-neutral-200 shadow-lg shadow-black-150',
-            submit: 'inline-block rounded bg-neutral-800 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-neutral-50 shadow-dark-3 transition duration-150 ease-in-out hover:bg-neutral-700 hover:shadow-dark-2 focus:bg-neutral-700 focus:shadow-dark-2 focus:outline-none focus:ring-0 active:bg-neutral-900 active:shadow-dark-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong'
+            submit: 'inline-block rounded bg-neutral-800 px-5 pb-1 pt-1 leading-normal text-neutral-50 shadow-dark-3 transition duration-150 ease-in-out hover:bg-neutral-700 hover:shadow-dark-2 focus:bg-neutral-700 focus:shadow-dark-2 focus:outline-none focus:ring-0 active:bg-neutral-900 active:shadow-dark-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong'
         }
 
     let dataSent = {}
@@ -87,6 +92,12 @@ const Manage = () => {
             console.log('set to art')
             for (const prop of propArt) {
                 dataSent[prop] = data[prop]
+            }
+        } else if (data.do) {
+            destination ='/tod/'
+            console.log('set to tod')
+            for (const tod of propTod) {
+                dataSent[tod] = data[tod]
             }
         } else {
             destination = '/exp/'
@@ -144,6 +155,22 @@ const Manage = () => {
                             ))}
                         </tbody>
                     </table>
+                    <h2>add todo...</h2>
+                    <form className='form-todo flex justify-between items-center' onSubmit= { sendData }>
+                            { propTod.map((doo) => (
+                                <input
+                                className = { tails[doo] }
+                                key = { doo }
+                                type = 'text'
+                                name = { doo }
+                                onChange = { changeData }
+                                value = { data[doo] }
+                                placeholder = { data[doo] ? '' : `enter ${doo}`}
+                                required
+                                />
+                            ))}
+                            <button className = { tails.submit } type='submit'>add</button>
+                    </form>
                 </section>
             </div>
             <div className="crud">
