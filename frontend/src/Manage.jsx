@@ -39,10 +39,6 @@ const Manage = () => {
         api.get('/tod/')
         .then((response) => {
             setTodos(response.data)
-            todos.forEach(doo => {
-                due.id = doo.id
-                due.days = calculateDays(doo.due)
-            });
             console.log('Success, ', response)
         })
         .catch((error) => {
@@ -125,7 +121,7 @@ const Manage = () => {
     }
     
     const deleteTodo = (tdid) => {
-        api.delete(`/tod/${tdid}`)
+        api.delete(`/tod/${tdid}/`)
         .then((response) => {
             console.log(response)
             let newTodo = todos.filter(todo => todo.id !== tdid)
