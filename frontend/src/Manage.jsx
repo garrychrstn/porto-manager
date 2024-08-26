@@ -108,6 +108,11 @@ const Manage = () => {
         }
         api.post(destination, dataSent)
         .then((response) => {
+            if (destination === '/tod/') {
+                let new_tod = { id: 'new', do: `${data.do}`, due: `${data.due}`}
+                setTodos((todos) => [...todos, new_tod])
+            }
+
             console.log(dataSent)
             console.log('Success', response)
             dataSent = {}
@@ -118,6 +123,20 @@ const Manage = () => {
             dataSent = {}
         })
     }
+    
+    const deleteTodo = (tdid) => {
+        api.delete(`/tod/${tdid}`)
+        .then((response) => {
+            console.log(response)
+            let newTodo = todos.filter(todo => todo.id !== tdid)
+            setTodos(newTodo)
+        })
+        .catch((error) => {
+            console.log(`log error, tdid = ${tdid}`)
+            console.log(error)
+        })
+    }
+    
     return ( 
         <div className="manage m-auto w-2/3 pt-9">
             <div className="porto-nav flex justify-between mb-10 items-center">
@@ -142,6 +161,7 @@ const Manage = () => {
                                 <th>to do</th>
                                 <th>due date</th>
                                 <th>days left</th>
+                                <th>action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -151,6 +171,7 @@ const Manage = () => {
                                     <td>{ todo.do }</td>
                                     <td>{ todo.due }</td>
                                     <td>{ calculateDays(todo.due) }</td>
+                                    <td><button onClick={ () => (deleteTodo(todo.id)) } className={ tails.submit }>remove</button></td>
                                 </tr>
                             ))}
                         </tbody>
