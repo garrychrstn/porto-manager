@@ -9,27 +9,27 @@ function Navbar() {
         <div className='navbar'>
             <ul>
                 <li>
-                  <a className='nav-a' href='https://github.com/garrychrstn'>
+                  <a className='nav-a flex items-center' href='https://github.com/garrychrstn'>
                     <FaGithub />
-                    <span>garrychrstn</span>
+                    <span className="ml-1">garrychrstn</span>
                   </a>
                 </li>
                 <li>
-                  <a className='nav-a' href='https://instagram.com/garrychrstn'>
+                  <a className='nav-a flex items-center' href='https://instagram.com/garrychrstn'>
                     <FaInstagram />
-                    <span>garrychrstn</span>
+                    <span className="ml-1">garrychrstn</span>
                   </a>
                   </li>
                 <li>
-                  <a className='nav-a' href='tel:6287786965543'>
+                  <a className='nav-a flex items-center' href='tel:6287786965543'>
                     <BsFillTelephoneForwardFill/>
-                    <span>+62 877 8696 5543</span>
+                    <span className="ml-1">+62 877 8696 5543</span>
                   </a>
                 </li>
                 <li>
-                  <a className='nav-a' href='mailto:garrychrstn@gmail.com'>
+                  <a className='nav-a flex items-center' href='mailto:garrychrstn@gmail.com'>
                     <CgMail />
-                    <span>garrychrstn@gmail.com</span>
+                    <span className="ml-1">garrychrstn@gmail.com</span>
                   </a>
                 </li>
                 <li>

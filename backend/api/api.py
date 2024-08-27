@@ -30,3 +30,10 @@ class ToDViewSet(viewsets.ModelViewSet):
         permissions.AllowAny
     ]
     serializer_class = ToDSerializer
+
+class AboViewSet(viewsets.ModelViewSet):
+    queryset = About.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = AboSerializer

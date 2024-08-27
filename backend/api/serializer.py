@@ -23,3 +23,8 @@ class ToDSerializer(serializers.ModelSerializer):
     class Meta:
         model = ToDo
         fields = '__all__'
+
+class AboSerializer(serializers.ModelSerializer):
+    class Meta : 
+        model = About
+        fields = '__all__'

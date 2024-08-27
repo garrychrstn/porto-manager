@@ -19,3 +19,13 @@ class Quote(models.Model):
 class ToDo(models.Model):
     do = models.CharField(max_length=50)
     due = models.DateField()
+
+class About(models.Model):
+    name = models.CharField(max_length=30)
+    dob = models.DateField()
+    address = models.CharField(max_length=100)
+    job_status = models.BooleanField(default=True)
+    marr_status = models.BooleanField(default=False)
+    hobbies = models.CharField(max_length=100)
+    desc = models.CharField(max_length=100)
+    

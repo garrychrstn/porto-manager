@@ -1,5 +1,6 @@
-
 import { useEffect } from "react"
+import About from "../About"
+
 const Hero = () => {
     let posts = ['developer', 'network engineer consultant', 'ui / ux', 'cybersecs consultant']
     // const [handle, setHandle] = useState('developer')
@@ -23,7 +24,7 @@ const Hero = () => {
     return ( 
         <>
             <div className="hero">
-                <h1>Isca's Software House</h1>
+                <h1 className='text-2xl mb-2'>Garry</h1>
                 <p>ask me about : <span className="underline">{ post }</span></p>
 
             </div>
