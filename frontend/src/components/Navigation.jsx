@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import api from '../../axiosConfig.js';
 import About from '../About.jsx';
 import Quote from './Quote.jsx';
 import Article from '../Article.jsx';
 import Experience from './Experience.jsx';
+import { Context, PageContext } from '../Landing.jsx';
 
 const Navigation = () => {
-    const [content, setContent] = useState([])
-    const [page, setPage] = useState()
+    const [content, setContent] = useContext(Context)
+
+    const [page, setPage] = useContext(PageContext)
     const [comp, setComp] = useState()
 
     const changeContent = (des) => {
@@ -69,9 +71,9 @@ const Navigation = () => {
                     <button onClick={() => setPage('quotes')} className='nav_button'>quotes</button> */}
                 </ul>
             </div>
-            <section className="hcontent">
-                { renComp(comp) }
-            </section>
+            {/* <div className="con">
+                { content }
+            </div> */}
         </>
      );
 }
