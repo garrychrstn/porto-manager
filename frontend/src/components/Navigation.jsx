@@ -60,11 +60,11 @@ const Navigation = () => {
             <div className="navigation">
                 <ul>
                     
-                    <button onClick={ () => changeContent('exp') } className='nav_button'>experiences</button>
-                    <button onClick={ () => changeContent('pro') }className='nav_button'>projects</button>
-                    <button onClick={ () => changeContent('abo') }className='nav_button'>about</button>
-                    <button onClick={ () => changeContent('quo') }className='nav_button'>quotes</button>
-                    <button onClick={ () => changeContent('art') }className='nav_button'>articles</button>
+                    <button onClick={ () => changeContent('exp') } className='nav_button text-neutral-600 p-2'>experiences</button>
+                    <button onClick={ () => changeContent('pro') } className='nav_button text-neutral-600 p-2'>projects</button>
+                    <button onClick={ () => changeContent('abo') } className='nav_button text-neutral-600 p-2'>about</button>
+                    <button onClick={ () => changeContent('quo') } className='nav_button text-neutral-600 p-2'>quotes</button>
+                    <button onClick={ () => changeContent('art') } className='nav_button text-neutral-600 p-2'>articles</button>
                     {/* <button onClick={() => setPage('exp')} className='nav_button'>experiences</button>
                     <button onClick={() => setPage('project')} className='nav_button'>projects</button>
                     <button onClick={() => setPage('about')} className='nav_button'>about</button>

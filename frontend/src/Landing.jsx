@@ -1,4 +1,4 @@
-import Content from './components/Content.jsx';
+import Content from './Content.jsx';
 import Hero from './components/Hero.jsx'
 import Navbar from './components/Navbar.jsx';
 import Navigation from './components/Navigation.jsx';

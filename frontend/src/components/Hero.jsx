@@ -24,8 +24,8 @@ const Hero = () => {
     return ( 
         <>
             <div className="hero">
-                <h1 className='text-2xl mb-2'>Garry</h1>
-                <p>ask me about : <span className="underline">{ post }</span></p>
+                <h1 className='text-2xl mb-2'>Punakawan Dev House</h1>
+                <p>ask us about : <span className="underline">{ post }</span></p>
 
             </div>
         </>

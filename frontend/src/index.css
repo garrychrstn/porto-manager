@@ -3,9 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --cream-bg : #eaeaea;
-  --black-font : #434343;
-
+  --cream-bg: #eaeaea;
+  --black-font: #434343;
 }
 * {
   margin: 0;
@@ -15,7 +14,7 @@
   display: flex;
   height: 100vh;
   flex-direction: column;
-  justify-content: space-around;  
+  justify-content: space-around;
 }
 .fullpage > *:not(.hcontent) {
   flex: 0 0 auto;
@@ -30,8 +29,8 @@ input {
   box-shadow: none;
   margin-right: 10px;
 }
-button { 
-  cursor : pointer;
+button {
+  cursor: pointer;
 }
 .nav-a {
   display: flex;
@@ -39,7 +38,7 @@ button {
 }
 .nav_button {
   border: none;
-  transition: .5s;
+  transition: 0.5s;
   border-bottom: 3px solid transparent;
 }
 .nav_button:hover {
@@ -48,20 +47,29 @@ button {
 body {
   background: var(--cream-bg);
 }
-a, li, p, h1, h2 {
+a,
+li,
+p,
+h1,
+h2 {
   list-style: none;
   text-decoration: none;
   font-style: none;
   font-family: "DM Sans", sans-serif;
   color: var(--black-font);
-} a { text-decoration: underline; }
+}
+a {
+  text-decoration: underline;
+}
 
-.navbar, .navigation {
+.navbar,
+.navigation {
   width: 70%;
   margin: auto;
   font-weight: bold;
 }
-.navbar ul, .navigation ul {
+.navbar ul,
+.navigation ul {
   display: flex;
   justify-content: space-around;
 }
@@ -79,19 +87,6 @@ a, li, p, h1, h2 {
   margin-top: 10%;
 }
 
-// Article page
-.articles {
-  
-}
-.article {
-  margin: auto;
-  width: 65%;
-  margin-bottom: 20px;
-  padding: 30px 20px;
-  box-shadow: 5px 10px grey;
-  border: 1px solid grey;
-}
-
 .postarticle {
   margin: auto;
   width: 50%;
@@ -101,29 +96,11 @@ a, li, p, h1, h2 {
 .postarticle h1 {
   margin-bottom: 50px;
 }
-
-// Project page
-.project {}
-.proj {
-  width: 60%;
-  margin: auto;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 5px 8px grey;
-  
-   border: 1px black solid;
-   margin-bottom: 12px;
+.navigation {
 }
-
-// Manage Page
-.manage {
-  
+.navigation .nav_button:focus {
+  bakcground-color: pink;
 }
-/*
-.manage {
-  padding: 30px 20px;
-  width: 70%;
-  margin: auto;
+.navigation .nav_button:active {
+  bakcground-color: pink;
 }
-
-*/
