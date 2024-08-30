@@ -3,7 +3,7 @@ import Hero from './components/Hero.jsx'
 import Navbar from './components/Navbar.jsx';
 import Navigation from './components/Navigation.jsx';
 import React, { useState } from 'react';
-
+import Calendar from './components/Calendar.jsx';
 export const Context = React.createContext();
 export const PageContext = React.createContext();
 

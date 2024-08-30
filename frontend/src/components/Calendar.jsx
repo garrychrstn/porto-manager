@@ -1,116 +1,58 @@
-import { Context, PageContext } from "./Landing";
-import { useState, useContext } from "react";
+// import { Context, PageContext } from "../Landing";
+// import { useState, useContext } from "react";
 
 const Content = () => {
-    const [content, setContent] = useContext(Context);
-    const [page, setPage] = useContext(PageContext);
     
-    let y24 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
-    let timeline = []
-    content.forEach(c => {
-        let ni = {
-            id: c.id,
-            position: c.position,
-            company: c.company,
-            start_date: c.start_date.slice(5, 7),
-            end_date: c.end_date.slice(5, 7),
-        }
-        timeline.push(ni)
-    })
-    let compc = [
-        {cid: 'PT. Lingkar Kabel Telekom', tail: 'bg-red-400 px-8 py-5'},
-        {cid: 'kitanet.id', tail: 'bg-blue-400 px-8 py-5'}
+    let y24 = [
+        { id: 'jan', pos: '', comp: '', tail: '' },
+        { id: 'feb', pos: '', comp: '', tail: ''  },
+        { id: 'mar', pos: '', comp: '', tail: ''  },
+        { id: 'apr', pos: '', comp: '', tail: ''  },
+        { id: 'may', pos: '', comp: '', tail: ''  },
+        { id: 'jun', pos: '', comp: '', tail: ''  },
+        { id: 'jul', pos: '', comp: '', tail: ''  },
+        { id: 'aug', pos: '', comp: '', tail: ''  },
+        { id: 'sep', pos: '', comp: '', tail: ''  },
+        { id: 'oct', pos: '', comp: '', tail: ''  },
+        { id: 'nov', pos: '', comp: '', tail: ''  },
+        { id: 'dec', pos: '', comp: '', tail: '' },
+    ];
+    const getMonth = (sd, ed) => {
+        const final_sd = sd.slice(5, 7);
+        const final_ed = ed.slice(5, 7);
+        content.forEach(c => {
+            
+        });
+    }
+    let content = [
+        {
+            id: 1, position: 'noc', company: 'maxnet+', start_date:'2024-03-18', end_date:'2024-09-10'
+        },
+        {
+            id: 2, position: 'programmer', company: 'gmdp', start_date:'2024-09-11', end_date:'2024-01-19'
+        },
+        {
+            id: 3, position: 'engineer', company: 'kominfo', start_date:'2024-02-19', end_date:'2024-07-20'
+        },
     ]
-    const getTail = (id) => {
-        let tail = compc.find(tail => tail.cid === id);
-
-    }
-    let cstruct = []
-    if (page === 'exp') {
-        cstruct = [
-            {
-                id: 'position',
-                tail: 'text-gray-200 text-xl font-bold'
-            },
-            {
-                id: 'company',
-                tail: 'text-gray-200 text-lg'
-            },
-            {
-                id: 'start_date',
-                tail: 'after:content-["-"] inline text-gray-200 text-base'
-            },
-            {
-                id: 'end_date',
-                tail: 'inline text-gray-200 text-base'
-            },
-            {
-                id: 'desc',
-                tail: 'text-gray-200 text-base'
-            },
-        ]
-    } else if (page === 'art') {
-        cstruct = [
-            {
-                id: 'title',
-                tail: 'text-gray-200 text-lg'
-            },
-            {
-                id: 'content',
-                tail: 'text-gray-200 text-lg'
-            },
-        ]
-    } else if (page === 'quo') {
-        cstruct = [
-            {
-                id: 'text',
-                tail: 'text-gray-200 text-lg'
-            },
-            {
-                id: 'by',
-                tail: 'text-gray-200 text-lg'
-            },
-        ]
-    } else {
-        cstruct = [
-            {
-                id: 'name',
-                tail: 'text-gray-200 text-lg'
-            },
-            {
-                id: 'dob',
-                tail: 'text-gray-200 text-lg'
-            },
-            {
-                id: 'address',
-                tail: 'text-gray-200 text-lg'
-            },
-            {
-                id: 'job_status',
-                tail: 'text-gray-200 text-lg'
-            },
-            {
-                id: 'marr_status',
-                tail: 'text-gray-200 text-lg'
-            },
-            {
-                id: 'hobbies',
-                tail: 'text-gray-200 text-lg'
-            },
-            {
-                id: 'desc',
-                tail: 'text-gray-200 text-lg'
-            },
-        ]
-    }
+    let idtail = [
+        { id: 'maxnet+', tail: 'px-7 py-4 bg-red-500 border-2 border-solid w-1/4 rounded-lg'},
+        { id: 'gmdp+', tail: 'px-7 py-4 bg-blue-500 border-2 border-solid w-1/4 rounded-lg'},
+        { id: 'kominfo', tail: 'px-7 py-4 bg-blue-800 border-2 border-solid w-1/4 rounded-lg'},
+    ]
     console.log(content)
     return ( 
-        <div className="content m-auto w-2/5 bg-gray-800 p-5 rounded-lg">
-            { y24.map((m) => {
-                
-            })}
-        </div>
+        <>  
+            <h1>Calendar</h1>
+            <h2 className="text-center text-lg">2024</h2>
+            <div className="content m-auto w-1/2 p-5 rounded-lg flex flex-wrap">
+                { y24.map((m) => (
+                    <div className="" key={ m.id }>
+                        <h2 className=""></h2>
+                    </div>
+                ))}
+            </div>
+        </>
      );
 }
  
