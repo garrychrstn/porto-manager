@@ -1,5 +1,6 @@
 import { Context, PageContext } from "./Landing";
 import { useState, useContext } from "react";
+import Calendar from "./components/Calendar";
 
 const Content = () => {
     const [content, setContent] = useContext(Context);
