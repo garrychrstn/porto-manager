@@ -12,10 +12,16 @@ const Content = () => {
     let cstruct = []
     // DIFFERENT COMPONENT FOR EACH PAGE
     const showComp = () => {
-        if (page === 'exp') {
-            return <Calendar />
-        } else if (page === 'abo') {
-            return <About />
+        switch (page) {
+            case 'exp':
+                return <Calendar />
+            case 'abo':
+                console.log(page)
+                return <About profile={ content } />
+            case 'art' :
+                return <Article />
+            case 'quo' :
+                return <Quote />
         }
     }
 

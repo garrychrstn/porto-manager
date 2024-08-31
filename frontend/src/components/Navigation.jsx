@@ -13,46 +13,46 @@ const Navigation = () => {
     const [comp, setComp] = useState()
 
     const changeContent = (des) => {
-        let c = cstruct.find(o => o.id == des)
-        setComp(c.pg)
+        // let c = cstruct.find(o => o.id == des)
+        // setComp(c.pg)
 
         setPage(des)
     }
     const renComp = (co) => {
         return co
     }
-    let cstruct = [
-        {
-            id: 'exp',
-            pg: <Experience />,
-            c: ['position', 'company', 'start_date', 'end_date', 'desc']
-        },
-        {
-            id: 'art',
-            pg: <Article />,
-            c: ['title', 'content']
-        },
-        {
-            id: 'quo',
-            pg: <Quote />,
-            c: ['text', 'by']
-        },
-        {
-            id: 'abo',
-            pg: <About />,
-            c: ['name', 'dob', 'address', 'job_status', 'marr_status', 'hobbies', 'desc']
-        }
-    ]
+    // let cstruct = [
+    //     {
+    //         id: 'exp',
+    //         pg: <Experience />,
+    //         c: ['position', 'company', 'start_date', 'end_date', 'desc']
+    //     },
+    //     {
+    //         id: 'art',
+    //         pg: <Article />,
+    //         c: ['title', 'content']
+    //     },
+    //     {
+    //         id: 'quo',
+    //         pg: <Quote />,
+    //         c: ['text', 'by']
+    //     },
+    //     {
+    //         id: 'abo',
+    //         pg: <About />,
+    //         c: ['name', 'dob', 'address', 'job_status', 'marr_status', 'hobbies', 'desc']
+    //     }
+    // ]
     useEffect(() => {
         if (page) {
         api.get(`/${page}/`)
-        .then(response => {
+        .then((response) => {
             console.log(response);
             setContent(response.data);
-            console.log('success');
+            console.log('GET DATA success');
         })
-        .catch(error => {
-            console.error('Error : ', error);
+        .catch((error) => {
+            console.log('Error : ', error);
         })
     }}, [page]);
     return (
