@@ -14,7 +14,8 @@ const Content = () => {
     const showComp = () => {
         switch (page) {
             case 'exp':
-                return <Calendar />
+                console.log(page)
+                return <Calendar experiences={ content }/>
             case 'abo':
                 console.log(page)
                 return <About profile={ content } />
