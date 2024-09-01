@@ -15,7 +15,7 @@ const Content = () => {
         switch (page) {
             case 'exp':
                 console.log(page)
-                return <Calendar experiences={ content }/>
+                return Array.isArray(content) ? <Calendar experiences={content} /> : <div>Loading experiences...</div>;
             case 'abo':
                 console.log(page)
                 return <About profile={ content } />

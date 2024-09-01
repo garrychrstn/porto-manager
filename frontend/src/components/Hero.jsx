@@ -1,5 +1,4 @@
 import { useEffect } from "react"
-import About from "../About"
 
 const Hero = () => {
     let posts = ['developer', 'network engineer consultant', 'ui / ux', 'cybersecs consultant']

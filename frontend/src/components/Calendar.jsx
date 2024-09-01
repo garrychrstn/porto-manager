@@ -49,6 +49,9 @@ const Calendar = ({experiences}) => {
             }
         }); 
     });
+    if (!experiences || !Array.isArray(experiences) || experiences.length === 0) {
+        return <div>Loading experiences...</div>;
+    }
 
     console.log('y24: ', y24)
     console.log('exps: ', experiences)
@@ -56,7 +59,7 @@ const Calendar = ({experiences}) => {
         <>  
             <h1>Calendar</h1>
             <h2 className="text-center text-lg">2024</h2>
-            <div className="exps m-auto w-1/2 p-5 rounded-lg flex flex-wrap">
+            <div className="exps m-auto w-4/5 p-5 rounded-lg flex flex-wrap">
                 { y24.map((m) => (
                     <div className={ m.tail } id={ m.id } key={ m.id }>
                         <p className="text-black text-opacity-0">{ m.pos }</p>

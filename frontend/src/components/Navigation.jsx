@@ -1,9 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
 import api from '../../axiosConfig.js';
-import About from '../About.jsx';
-import Quote from './Quote.jsx';
-import Article from '../Article.jsx';
-import Experience from './Experience.jsx';
 import { Context, PageContext } from '../Landing.jsx';
 
 const Navigation = () => {
@@ -48,7 +44,11 @@ const Navigation = () => {
         api.get(`/${page}/`)
         .then((response) => {
             console.log(response);
-            setContent(response.data);
+            if (page === 'exp') {
+                setContent(Array.isArray(response.data) ? response.data : []);
+            } else {
+                setContent(response.data);
+            }
             console.log('GET DATA success');
         })
         .catch((error) => {
