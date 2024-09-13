@@ -9,7 +9,7 @@ export const PageContext = React.createContext();
 
 const Landing = () => {
     const [content, setContent] = useState([])
-    const [page, setPage] = useState([])
+    const [page, setPage] = useState()
 
     return ( 
         <Context.Provider value={[content, setContent]}>

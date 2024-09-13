@@ -9,40 +9,16 @@ const Navigation = () => {
     const [comp, setComp] = useState()
 
     const changeContent = (des) => {
-        // let c = cstruct.find(o => o.id == des)
-        // setComp(c.pg)
-
-        setPage(des)
+        setPage(des);
+        console.log(`CHANGES TO PAGE`);
+        console.log(page);
     }
-    const renComp = (co) => {
-        return co
-    }
-    // let cstruct = [
-    //     {
-    //         id: 'exp',
-    //         pg: <Experience />,
-    //         c: ['position', 'company', 'start_date', 'end_date', 'desc']
-    //     },
-    //     {
-    //         id: 'art',
-    //         pg: <Article />,
-    //         c: ['title', 'content']
-    //     },
-    //     {
-    //         id: 'quo',
-    //         pg: <Quote />,
-    //         c: ['text', 'by']
-    //     },
-    //     {
-    //         id: 'abo',
-    //         pg: <About />,
-    //         c: ['name', 'dob', 'address', 'job_status', 'marr_status', 'hobbies', 'desc']
-    //     }
-    // ]
     useEffect(() => {
         if (page) {
+            console.log(`page is changed to ${page}`)
         api.get(`/${page}/`)
         .then((response) => {
+            console.log(`fire api req to ${page}`);
             console.log(response);
             if (page === 'exp') {
                 setContent(Array.isArray(response.data) ? response.data : []);
@@ -65,15 +41,8 @@ const Navigation = () => {
                     <button onClick={ () => changeContent('abo') } className='nav_button text-neutral-600 p-2'>about</button>
                     <button onClick={ () => changeContent('quo') } className='nav_button text-neutral-600 p-2'>quotes</button>
                     <button onClick={ () => changeContent('art') } className='nav_button text-neutral-600 p-2'>articles</button>
-                    {/* <button onClick={() => setPage('exp')} className='nav_button'>experiences</button>
-                    <button onClick={() => setPage('project')} className='nav_button'>projects</button>
-                    <button onClick={() => setPage('about')} className='nav_button'>about</button>
-                    <button onClick={() => setPage('quotes')} className='nav_button'>quotes</button> */}
                 </ul>
             </div>
-            {/* <div className="con">
-                { content }
-            </div> */}
         </>
      );
 }
